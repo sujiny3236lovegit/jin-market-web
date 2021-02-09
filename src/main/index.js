@@ -18,22 +18,16 @@ function MainPage(){
         },[]);
     return (
     <div>
-        <div id="header">
-            <div id="header-area">
-                <img src="images/icons/logo.png" alt="지니마켓" />
-            </div>
-        </div>
-        <div id="body">
-            <div id="banner">
+        <div id="banner">
             <img src="images/banners/banner1.png" alt="첫번째배너" />
-            </div>
-            <h1>판매되는 상품들</h1>
-            <div id="product-list">
+        </div>
+        <h1>판매되는 상품들</h1>
+        <div id="product-list">
                 {
                     products.map(function(product, index){
                         return (
                             <div class="product-card">
-                                <Link className="product-link" to={`/products/${index}`}>
+                                <Link style={{ color: "inherit"}} className="product-link" to={`/products/${product.id}`}>
                                     <div>
                                         <img class="product-img" src={product.imageUrl} alt="상품" />
                                     </div>
@@ -50,9 +44,7 @@ function MainPage(){
                         ) 
                     })
                 }
-            </div>
         </div>
-        <div id="footer"></div>
     </div>
     );
 }
