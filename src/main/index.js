@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 function MainPage(){
     const [products, setProducts] = React.useState([]);
@@ -32,19 +33,21 @@ function MainPage(){
                     products.map(function(product, index){
                         return (
                             <div class="product-card">
-                                <div>
-                                    <img class="product-img" src={product.imageUrl} alt="상품" />
-                                </div>
-                                <div class="product-contents">
-                                    <span class="product-name">{product.name}</span>
-                                    <span class="product-price">{product.price}원</span>
-                                <div class="product-seller">
-                                    <img class="product-avatar" src="images/icons/avatar.png" alt="판매자" />
-                                    <span>{product.seller}</span>
-                                </div>
-                                </div>
+                                <Link className="product-link" to={`/products/${index}`}>
+                                    <div>
+                                        <img class="product-img" src={product.imageUrl} alt="상품" />
+                                    </div>
+                                    <div class="product-contents">
+                                        <span class="product-name">{product.name}</span>
+                                        <span class="product-price">{product.price}원</span>
+                                        <div class="product-seller">
+                                            <img class="product-avatar" src="images/icons/avatar.png" alt="판매자" />
+                                            <span>{product.seller}</span>
+                                        </div>
+                                    </div>
+                                </Link>
                             </div>
-                        )
+                        ) 
                     })
                 }
             </div>
